@@ -47,8 +47,21 @@
   </developer>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.6.0" date="2024-06-21">
+      <description>
+        <p>
+          For full release notes, see the releases page on Github.
+        </p>
+      </description>
+      <url>https://github.com/Drewol/unnamed-sdvx-clone/releases/tag/v0.6.0</url>
+    </release>
     <release version="0.5.0" date="2021-06-13">
-      <description>https://github.com/Drewol/unnamed-sdvx-clone/releases/tag/v0.5.0</description>
+      <description>
+        <p>
+          For full release notes, see the releases page on Github.
+        </p>
+      </description>
+      <url>https://github.com/Drewol/unnamed-sdvx-clone/releases/tag/v0.5.0</url>
     </release>
   </releases>
 </component>
