@@ -1,9 +1,10 @@
 id: me.drewol.Unnamed-SDVX-Clone
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: usc-game
 rename-icon: usc-game
+rename-desktop-file: usc-game.desktop
 finish-args:
   # X11 + XShm access
   - --share=ipc
@@ -16,32 +17,43 @@ finish-args:
   - --share=network
   # Sound output
   - --socket=pulseaudio
+cleanup:
+  - /include
+  - /lib/cmake
+  - '*.a'
 modules:
-  - shared-modules/SDL2/SDL2-with-libdecor.json
   - name: cpr
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCPR_USE_SYSTEM_CURL=ON
+      - -DBUILD_SHARED_LIBS=ON
     sources:
       - type: git
         url: https://github.com/libcpr/cpr.git
-        tag: 1.10.5
-    config-opts:
-      - -DCPR_USE_SYSTEM_CURL=ON
+        tag: 1.14.2
+        commit: f091b2c061b307ee89b164c39976fc9202a1c79d
+
   - name: unnamed-sdvx-clone
     buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DUSE_SYSTEM_CPR=ON
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    post-install:
+      - install -D appimage/usc-game.png -t /app/share/icons/hicolor/128x128/apps/
+      - install -D appimage/usc-game.desktop -t /app/share/applications/
+      - install -D me.drewol.Unnamed-SDVX-Clone.metainfo.xml -t /app/share/metainfo/
     sources:
       - type: git
         url: https://github.com/Drewol/unnamed-sdvx-clone.git
         tag: v0.6.0
+        commit: 260b050569413a04db9d437c5158d2a032873ad6
       - type: file
         path: me.drewol.Unnamed-SDVX-Clone.metainfo.xml
       - type: archive
         url: https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz
         sha256: bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e
         dest: third_party/discord-rpc/thirdparty/rapidjson/
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
-      - -DUSE_SYSTEM_CPR=ON
-    post-install:
-      - install -D appimage/usc-game.png /app/share/icons/hicolor/128x128/apps/usc-game.png 
-      - install -D appimage/usc-game.desktop /app/share/applications/me.drewol.Unnamed-SDVX-Clone.desktop 
-      - install -D me.drewol.Unnamed-SDVX-Clone.metainfo.xml /app/share/metainfo/me.drewol.Unnamed-SDVX-Clone.metainfo.xml 
+      - type: patch
+        path: rapidjson-gcc14.patch
+        dest: third_party/discord-rpc/thirdparty/rapidjson/

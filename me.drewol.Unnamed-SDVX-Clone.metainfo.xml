@@ -6,9 +6,7 @@
   <name>Unnamed SDVX Clone</name>
   <summary>A game based on KShootMANIA &amp; SDVX</summary>
   <description>
-    <p>
-        A game based on K-Shoot MANIA and Sound Voltex
-    </p>
+    <p>A game based on K-Shoot MANIA and Sound Voltex</p>
     <ul>
       <li>Completely skinnable GUI</li>
       <li>OGG/MP3 Audio streaming (with preloading for gameplay performance)</li>
@@ -32,16 +30,13 @@
       <caption>Gameplay screenshot showcasing default colors</caption>
     </screenshot>
     <screenshot>
-      <image>https://i3.ytimg.com/vi/kP1tD6bkPa4/maxresdefault.jpg</image>
-      <caption>Gameplay screenshot showcasing a vertical resolution</caption>
-    </screenshot>
-    <screenshot>
       <image>https://i3.ytimg.com/vi/_g9Xv5RDwa0/maxresdefault.jpg</image>
       <caption>Gameplay screenshot showcasing custom laser colors</caption>
     </screenshot>
   </screenshots>
-  <url type="bugtracker">https://github.com/Drewol/unnamed-sdvx-clone/issues</url>
   <url type="homepage">https://github.com/Drewol/unnamed-sdvx-clone</url>
+  <url type="bugtracker">https://github.com/Drewol/unnamed-sdvx-clone/issues</url>
+  <url type="vcs-browser">https://github.com/Drewol/unnamed-sdvx-clone</url>
   <developer id="me.drewol">
     <name>Drewol</name>
   </developer>
