@@ -57,3 +57,7 @@ modules:
       - type: patch
         path: rapidjson-gcc14.patch
         dest: third_party/discord-rpc/thirdparty/rapidjson/
+      - type: patch
+        path: logPath.patch
+        # DISCLAIMER: Because the data directory does not yet exist on the very
+        #   first execution after installing, the log file will not be created

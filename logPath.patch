@@ -1,0 +1,14 @@
+diff --git a/Shared/src/Log.cpp b/Shared/src/Log.cpp
+index affd68ee..840a6210 100644
+--- a/Shared/src/Log.cpp
++++ b/Shared/src/Log.cpp
+@@ -30,7 +30,8 @@ public:
+ #endif
+ 
+ 		// Log to file
+-		String logPath = Path::Absolute(Utility::Sprintf("log_%s.txt", moduleName));
++		String logPath = Utility::Sprintf("%s%c%s%clog_%s.txt",
++			std::getenv("XDG_DATA_HOME"), Path::sep, "unnamed-sdvx-clone", Path::sep, moduleName);
+ 		if (!m_logFile.OpenWrite(logPath, false, true))
+ 		{
+ 			m_failedToOpen = true;
