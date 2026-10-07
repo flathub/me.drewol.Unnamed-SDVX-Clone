@@ -13,6 +13,8 @@ finish-args:
   - --socket=wayland
   # GPU acceleration
   - --device=dri
+  # Game controller/joystick access (SDL reads /dev/input)
+  - --device=input
   # Needs to talk to the network
   - --share=network
   # Sound output
