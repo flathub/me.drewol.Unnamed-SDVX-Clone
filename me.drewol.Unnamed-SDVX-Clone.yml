@@ -6,6 +6,8 @@ command: usc-game
 rename-icon: usc-game
 rename-desktop-file: usc-game.desktop
 finish-args:
+  # --device=input requires Flatpak 1.16
+  - --require-version=1.16.0
   # X11 + XShm access
   - --share=ipc
   - --socket=fallback-x11
