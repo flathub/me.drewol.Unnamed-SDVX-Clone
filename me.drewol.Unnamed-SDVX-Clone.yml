@@ -6,6 +6,8 @@ command: usc-game
 rename-icon: usc-game
 rename-desktop-file: usc-game.desktop
 finish-args:
+  # --device=input requires Flatpak 1.16
+  - --require-version=1.16.0
   # X11 + XShm access
   - --share=ipc
   - --socket=fallback-x11
@@ -13,6 +15,8 @@ finish-args:
   - --socket=wayland
   # GPU acceleration
   - --device=dri
+  # Game controller/joystick access (SDL reads /dev/input)
+  - --device=input
   # Needs to talk to the network
   - --share=network
   # Sound output
